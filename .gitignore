@@ -1,0 +1,28 @@
+# 运行时产物（非仓库内容）
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# 本地缓存与历史日志（用户机器生成）
+skills-find-cache.json
+registry.cache.json
+skills-install-log.md
+*.bak
+*.bak.*
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 打包
+dist/
+build/
+*.egg-info/
