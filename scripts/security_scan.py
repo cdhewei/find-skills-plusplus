@@ -372,11 +372,37 @@ def parse_frontmatter(text: str):
     if not m:
         return False, {}
     fields = {}
-    for line in m.group(1).splitlines():
-        if ":" in line:
-            k, _, v = line.partition(":")
-            fields[k.strip()] = v.strip().strip('"').strip("'")
-    return True, fields
+    stack = [(0, fields)]
+    for raw in m.group(1).splitlines():
+        s = raw.strip()
+        if not s or s.startswith("#"):
+            continue
+        if ":" not in raw:
+            continue
+        indent = len(raw) - len(raw.lstrip())
+        k, _, v = raw.partition(":")
+        k = k.strip()
+        v = v.strip().strip('"').strip("'")
+        # 弹栈回到正确的父级（缩进 <= 当前栈顶时，说明回到更上层）
+        while len(stack) > 1 and indent <= stack[-1][0]:
+            stack.pop()
+        parent = stack[-1][1]
+        if v == "":
+            node = parent.get(k)
+            if not isinstance(node, dict):
+                node = {}
+                parent[k] = node
+            stack.append((indent, node))
+        else:
+            parent[k] = v
+    # 无子项的空字典还原为空字符串，保持对扁平标量的向后兼容
+    def _clean(o):
+        if isinstance(o, dict):
+            if not o:
+                return ""
+            return {kk: _clean(vv) for kk, vv in o.items()}
+        return o
+    return True, _clean(fields)
 
 
 def iter_segments(text: str):
