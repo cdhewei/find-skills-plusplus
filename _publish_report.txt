@@ -1,0 +1,16 @@
+﻿[说明] 正在校验工具自身（ROOT）：已跳过自身源码/文档/测试的路径与密钥扫描（含文档示例与测试夹具，非真实泄露）；用 --path 指向第三方技能目录时仍为全量扫描。
+
+## 发布就绪校验：
+
+  ✅ [PASS] frontmatter 必备字段 — name/description/version/author/license 齐全
+  ✅ [PASS] metadata 含 slug/displayName — 已含（头部市场规范）
+  ✅ [PASS] version 合法 — 5.2.1
+  ✅ [PASS] LICENSE 文件 — 存在
+  ✅ [PASS] skill-card.md 市场卡 — 存在
+  ✅ [PASS] references 引用齐备 — 无缺失引用
+  ✅ [PASS] README 无占位符 — 已替换
+  ✅ [PASS] 无硬编码绝对路径 — 已跳过工具自身源码（含文档示例/测试夹具，非真实泄露）
+  ✅ [PASS] 无泄露密钥 — 已跳过工具自身源码
+  ✅ [PASS] 端到端冒烟自证 — smoke.py PASS
+
+✅ 发布就绪：所有校验通过。

@@ -11,11 +11,12 @@
 > 源头为 [`vercel-labs/skills`](https://github.com/vercel-labs/skills) 的 `find-skills`。
 > **带完整署名的社区超级增强版，非官方替代品。**
 
+[![CI](https://github.com/cdhewei/find-skills-plusplus/actions/workflows/ci.yml/badge.svg)](https://github.com/cdhewei/find-skills-plusplus/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](#许可证与署名)
 [![Python](https://img.shields.io/badge/python-3.8%2B-3776AB.svg)](#)
 [![Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)](#)
-[![Tests](https://img.shields.io/badge/tests-100%2B%20passing-brightgreen.svg)](#测试)
-[![Updated](https://img.shields.io/badge/last%20updated-2026--09--19-brightgreen.svg)](#)
+[![Tests](https://img.shields.io/badge/tests-140%20passing-brightgreen.svg)](#测试)
+[![Updated](https://img.shields.io/badge/last%20updated-2026--09--21-brightgreen.svg)](#)
 
 ---
 
