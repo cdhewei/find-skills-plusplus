@@ -184,7 +184,7 @@ find-skills-plusplus/
 ├── SKILL.md                  # 核心指令（精炼，渐进式披露）
 ├── skill-card.md             # 市场标准卡（License / Known Risks & Mitigations）
 ├── README.md                 # 本文件（含竞品对比与 30 秒介绍）
-├── CHANGELOG.md              # 演进记录（1.0 → 5.2.1）
+├── CHANGELOG.md              # 演进记录（1.0 → 5.3.0）
 ├── findskills.py             # 零依赖 CLI（20 个子命令，含 promote/demo/elevator）
 ├── registry.json             # 离线可信注册表（手工精选）
 ├── references/               # 渐进式披露专题文档
@@ -280,7 +280,7 @@ python scripts/smoke.py
 
 **何巍** · find-skills++ 新增内容作者
 
-> 完整演进记录见 [CHANGELOG.md](./CHANGELOG.md)（1.0 → 5.2.1）
+> 完整演进记录见 [CHANGELOG.md](./CHANGELOG.md)（1.0 → 5.3.0）
 
 ---
 

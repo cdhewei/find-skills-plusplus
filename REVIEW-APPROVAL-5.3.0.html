@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>find-skills++ v5.3.0 出厂三审报告</title>
+<style>
+ *{box-sizing:border-box;}
+ body{margin:0;background:#0f1b24;color:#dfe9ec;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;}
+ .wrap{max-width:860px;margin:0 auto;padding:30px 22px 50px;}
+ h1{color:#7fe3ec;font-size:25px;border-bottom:2px solid #1f3a47;padding-bottom:10px;}
+ h2{color:#9fe9f0;font-size:19px;margin-top:30px;}
+ .ver{color:#8aa;font-size:14px;}
+ table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+ th,td{border:1px solid #25424f;padding:9px 10px;text-align:left;vertical-align:top;}
+ th{background:#15303a;color:#9fe9f0;}
+ tr:nth-child(even) td{background:#11262f;}
+ .ok{color:#48d597;font-weight:700;}
+ .fix{color:#ffc857;font-weight:700;}
+ .card{background:#11262f;border:1px solid #25424f;border-radius:10px;padding:16px 18px;margin:14px 0;}
+ .conc{background:#0c3b2e;border:1px solid #1f6b4f;border-radius:12px;padding:18px;margin-top:26px;color:#9ff0c8;}
+ ul{margin:8px 0 8px 18px;padding:0;}
+ li{margin:5px 0;}
+ code{background:#0a141a;color:#7fe3ec;padding:1px 5px;border-radius:4px;font-size:13px;}
+</style>
+<div class="wrap"><h1>find-skills++ v5.3.0 出厂三审报告</h1><div class="ver">校对 / 审核 / 审定 · 2026-09-21</div><h2>一、校对 · 文档数字对账</h2>
+ <table>
+ <tr><th>检查项</th><th>结果</th></tr>
+ <tr><td>版本号（活动文档）</td><td>SKILL.md / MARKETPLACE / CHANGELOG 5.3.0 条目 / 测试 fixture 均 5.3.0 ✓；README 两处 <code>（1.0 → 5.2.1）</code> 已修为 <span class="fix">5.3.0</span> ✓</td></tr>
+ <tr><td>测试数</td><td>全文档统一 <b>140</b>（badge / 项目结构 / Roadmap / 回归记录）✓</td></tr>
+ <tr><td>增强项</td><td>全文档统一 <b>52</b> ✓</td></tr>
+ <tr><td>子命令</td><td>全文档统一 <b>20</b> ✓</td></tr>
+ <tr><td>跨 agent 描述</td><td>四端（WorkBuddy / CodeBuddy / OpenClaw / Claude Code）在特性、安装、README 三处一致 ✓</td></tr>
+ </table><h2>二、审核 · 代码核对（findskills.py）</h2>
+ <ul>
+ <li><span class="ok">✓</span> <code>AGENT_TARGETS</code> 四元组（name, env_prefix, subdir）含 codebuddy / workbuddy / openclaw / claude（648–653 行）</li>
+ <li><span class="ok">✓</span> <code>detect_target_dir()</code>：env 前缀优先 → 家目录存在判定 → 兜底 workbuddy（656–669 行）</li>
+ <li><span class="ok">✓</span> <code>resolve_target_dir()</code>：None→自动判定；agent 名→对应目录；否则当作显式路径 <code>expanduser()</code>（672–680 行）</li>
+ <li><span class="ok">✓</span> <code>cmd_install</code> / <code>cmd_update</code> 已接新逻辑，跨 agent 安装/更新均成立（813–832 行）</li>
+ <li><span class="ok">✓</span> <code>discover_local</code> 默认 roots 已纳入 <code>.openclaw</code> / <code>.claude</code> 技能目录，治理也能跨 agent</li>
+ <li><span class="ok">✓</span> 无新增第三方依赖，零依赖原则保持</li>
+ </ul><h2>三、审定 · 实跑验证</h2>
+ <ul>
+ <li><span class="ok">✓</span> pytest：<b>140 passed</b>（venv 实跑，7.86s）</li>
+ <li><span class="ok">✓</span> 发布闸门 smoke：5.3.0 未触碰其逻辑，沿用 5.2.1 的 PASS 结论（注：smoke 含联网项，CI 不跑，本地受网络限制）</li>
+ <li><span class="ok">✓</span> 文档数字全对齐（52 增强 / 20 子命令 / 140 测试 / 5.3.0）</li>
+ </ul><div class="conc"><b>审定结论：</b>可出厂（v5.3.0）。P1-3 跨 agent 支持代码正确、测试无回归、文档数字已对账；本次三审补修 README 两处版本号遗漏。</div></div></html>
