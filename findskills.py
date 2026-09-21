@@ -1250,7 +1250,7 @@ KNOWN_CONNECTORS = {
 
 def cmd_publish(args) -> int:
     """发布就绪校验：上架前检查技能包是否达到市场门槛（frontmatter / LICENSE /
-    skill-card / 引用齐备 / 无占位符 / 无硬编码路径 / 无密钥 / 端到端冒烟必过闸）。
+    market-card / 引用齐备 / 无占位符 / 无硬编码路径 / 无密钥 / 端到端冒烟必过闸）。
 
     这是「出厂三审」之上的「上架闸门」——直接服务"被市场推荐"目标，竞品无此能力。
     默认校验当前仓库（ROOT），可用 --path 指定任意技能目录。
@@ -1286,8 +1286,8 @@ def cmd_publish(args) -> int:
 
     lic = p / "LICENSE"
     checks.append(("LICENSE 文件", "PASS" if lic.exists() else "FAIL", "存在" if lic.exists() else "缺少 LICENSE"))
-    sc = p / "skill-card.md"
-    checks.append(("skill-card.md 市场卡", "PASS" if sc.exists() else "WARN",
+    sc = p / "market-card.md"
+    checks.append(("market-card.md 市场卡", "PASS" if sc.exists() else "WARN",
                    "存在" if sc.exists() else "缺少（市场标准卡，强烈建议）"))
 
     qf = gather_quality_fields(p)

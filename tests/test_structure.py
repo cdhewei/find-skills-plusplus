@@ -53,11 +53,11 @@ def test_references_dir_exists_with_required_files():
 
 
 def test_skill_card_exists():
-    assert (ROOT / "skill-card.md").is_file(), "缺少 skill-card.md（市场标准卡）"
+    assert (ROOT / "market-card.md").is_file(), "缺少 market-card.md（市场标准卡）"
 
 
 def test_skill_card_has_known_risks():
-    t = (ROOT / "skill-card.md").read_text(encoding="utf-8")
+    t = (ROOT / "market-card.md").read_text(encoding="utf-8")
     assert "Known Risks" in t or "风险" in t
     assert "Mitigation" in t or "缓解" in t
 

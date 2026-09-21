@@ -24,7 +24,7 @@ def _write_skill(d: Path, *, with_license=True, with_card=True, fm_extra="",
     if with_license:
         (d / "LICENSE").write_text("MIT License\n", encoding="utf-8")
     if with_card:
-        (d / "skill-card.md").write_text("# Demo Skill Card\n", encoding="utf-8")
+        (d / "market-card.md").write_text("# Demo Skill Card\n", encoding="utf-8")
     (d / "README.md").write_text(readme or "# Demo\n\n干净技能。\n", encoding="utf-8")
     if scripts:
         sd = d / "scripts"
@@ -80,7 +80,7 @@ def test_publish_missing_skill_card_is_warn_not_block():
     d = Path(__file__).resolve().parent.parent / ".tmp-pub" / "nocard"
     _write_skill(d, with_card=False)
     rc = fk.main(["publish", "--path", str(d), "--no-smoke"])
-    # 缺 skill-card 是 WARN（不阻塞），纯警告返回 0（非 strict）
+    # 缺 market-card 是 WARN（不阻塞），纯警告返回 0（非 strict）
     assert rc == 0
 
 

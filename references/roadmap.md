@@ -17,7 +17,7 @@ AST 级安全分析、在线目录 sync + 离线缓存、环境感知引用校�
 ## Phase 4（对标头部看齐，已完成 ✅）
 
 红旗补齐 8 项、四级风险分类、权限清单、信任层级 5 级、frontmatter 标准化、
-渐进式披露 `references/` 拆分、市场标准卡 `skill-card.md` + 隐私条款。
+渐进式披露 `references/` 拆分、市场标准卡 `market-card.md` + 隐私条款。
 
 ## Phase 5（可选演进）
 

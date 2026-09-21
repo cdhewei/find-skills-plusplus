@@ -64,7 +64,7 @@ python findskills.py promote    # 一键生成 5000+ 字推广素材
 
 `find-skills++` 在其流程之上做了 **52 项实质增强**（详见文末清单），并参考了 [`sandbaseai/workbuddy-skill`](https://github.com/sandbaseai/workbuddy-skill) 的「真实脚本化安全审查」思路（本仓库 `scripts/security_scan.py` 为独立自研、零依赖实现，非复制）。
 
-**对标生态头部技能看齐**：`self-improving-agent`（121 万下载，生态第一）、`agent-browser`（82 万）、`skill-vetter`（31 万，同类头部）。对齐项包括 frontmatter 规范（`version` + `metadata`）、渐进式披露 `references/` 拆分、四级风险分类与权限清单、市场标准卡 `skill-card.md`（含 Known Risks & Mitigations）。
+**对标生态头部技能看齐**：`self-improving-agent`（121 万下载，生态第一）、`agent-browser`（82 万）、`skill-vetter`（31 万，同类头部）。对齐项包括 frontmatter 规范（`version` + `metadata`）、渐进式披露 `references/` 拆分、四级风险分类与权限清单、市场标准卡 `market-card.md`（含 Known Risks & Mitigations）。
 
 **相对成熟竞品 `sandbaseai/workbuddy-skill` 的差异化定位**：我们不强求"索引多少万技能"（那是它的护城河），而是主打 **离线可信 + 安全可控 + 好挑好选**——内置离线注册表、真实的预安装安全扫描、综合排序与来源信誉门槛。
 
@@ -91,7 +91,7 @@ python findskills.py promote    # 一键生成 5000+ 字推广素材
 - 🔒 **隐私** — 不收集、不上传、不外传任何本地数据；扫描全本地静态分析
 - 🚦 **`outdated` 版本巡检** — 比对已装版本与注册表/缓存最新版，一眼看出哪些技能该更新（生命周期闭环）
 - 🩺 **`doctor` 环境体检** — 自动诊断 frontmatter 错、质量分低、重复安装、缺依赖连接器、硬编码路径/密钥泄露，非运维用户也能自查
-- 🚪 **`publish` 发布就绪校验（上架闸门）** — 发布前自检市场门槛（frontmatter/LICENSE/skill-card/占位符/硬编码）+ 端到端冒烟自证，任一不过即 FAIL
+- 🚪 **`publish` 发布就绪校验（上架闸门）** — 发布前自检市场门槛（frontmatter/LICENSE/market-card/占位符/硬编码）+ 端到端冒烟自证，任一不过即 FAIL
 
 ## 安装
 
@@ -182,7 +182,7 @@ python findskills.py publish [--path DIR] [--no-smoke] [--strict]  # 发布就�
 ```
 find-skills-plusplus/
 ├── SKILL.md                  # 核心指令（精炼，渐进式披露）
-├── skill-card.md             # 市场标准卡（License / Known Risks & Mitigations）
+├── market-card.md             # 市场标准卡（License / Known Risks & Mitigations）
 ├── README.md                 # 本文件（含竞品对比与 30 秒介绍）
 ├── CHANGELOG.md              # 演进记录（1.0 → 5.3.0）
 ├── findskills.py             # 零依赖 CLI（20 个子命令，含 promote/demo/elevator）
@@ -235,7 +235,7 @@ python scripts/smoke.py
 - [x] 权限清单（文件 / 网络 / 命令）
 - [x] 5 级信任层级
 - [x] frontmatter 标准化（`version` + `metadata`）+ 渐进式披露 `references/` 拆分
-- [x] 市场标准卡 `skill-card.md` + 隐私条款
+- [x] 市场标准卡 `market-card.md` + 隐私条款
 
 **Phase 5（自我营销 + 合规，已完成 ✅）**
 - [x] **`promote` 自我营销引擎**：一键生成 5000+ 字推广素材（简介/banner/卖点/对比表/社交文案/发布清单）

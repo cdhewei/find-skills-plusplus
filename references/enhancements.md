@@ -60,7 +60,7 @@
 | **34** | **信任层级 5 级** | Trust Hierarchy | 官方源 → 知名源 → 已知作者 → 未知 → 索取凭据（一律人工批准） |
 | **35** | **frontmatter 标准化** | `version` + `metadata{slug,displayName}` | 补齐版本号与嵌套 metadata，对齐 #1 技能规范 |
 | **36** | **渐进式披露** | `references/` 拆分，SKILL.md 精炼 | 365 行单体 → 核心 SKILL.md + `references/{security,cli,enhancements,ranking,roadmap}.md` |
-| **37** | **市场标准卡 + 隐私条款** | `skill-card.md`（含 License / Known Risks & Mitigations） | 新增 `skill-card.md`；SKILL.md 与 README 增加隐私条款 |
+| **37** | **市场标准卡 + 隐私条款** | `market-card.md`（含 License / Known Risks & Mitigations） | 新增 `market-card.md`；SKILL.md 与 README 增加隐私条款 |
 
 ## Phase 5 — 自我营销 + 合规（38–45）
 
@@ -75,7 +75,7 @@
 | **41** | **市场 SEO 元数据** | 头部技能用 `xiaping_*` 提升检索命中 | 补齐 `slug` / `displayName`（卖点化）/ `xiaping_trigger` / `xiaping_category` / `xiaping_tags` / `xiaping_eval_strategy` |
 | **42** | **触发文案重写** | 原 description 只写能力、不写触发场景 | 卖点前置 + 中英触发词全覆盖（"找个 skill / 安装技能 / 技能管理 / 技能安全审查 / 技能装太多"） |
 | **43** | **CHANGELOG 演进记录** | 头部技能迭代到 3.0.24，有版本演进史 | 新增 `CHANGELOG.md`，1.0 → 5.0 完整演进，含每轮修正的真实 bug 与数据变化 |
-| **44** | **作者品牌区** | 99 万下载那位的 README 有强作者品牌引流 | README 补作者区 + 演进记录入口；`skill-card.md` 标明 Publisher |
+| **44** | **作者品牌区** | 99 万下载那位的 README 有强作者品牌引流 | README 补作者区 + 演进记录入口；`market-card.md` 标明 Publisher |
 | **45** | **许可证结案 + 溯源更正** | 长期标记"上游许可证待确认" | 核实 `guipi888/find-skills` = **MIT（Copyright 2026 Kyle）**；更正此前的"官方插件"误判为**双上游署名链**；LICENSE 保留上游 MIT 全文 |
 
 ### 溯源更正说明（重要）
@@ -121,4 +121,4 @@
 |---|---|---|---|
 | **50** | **`outdated` 版本巡检** | 装了技能却不知道上游有没有新版本 | 比对 `discover_local()` 已装版本与 `load_registry()`/`load_cache()` 最新版，输出可更新清单；注册表空时回落缓存，TTL 24h 内不强制联网 |
 | **51** | **`doctor` 环境体检** | 非运维用户遇 frontmatter 错 / 质量分低 / 重复安装 / 缺 Node 却跑 Node 脚本时无从下手 | 逐技能检查 frontmatter 合法性、质量分 <40、连接器依赖（tdx/westock/agent-mail）、硬编码绝对路径 / 密钥泄露；报告 `find_duplicate_installs`，并**跳过工具自身源码**免误报 |
-| **52** | **`publish` 发布就绪校验（上架闸门）** | 文档吹得满，一上架就被市场门槛或占位符打回 | 校验 SKILL.md 必填 frontmatter + `metadata.slug/displayName`、LICENSE、`skill-card.md`、引用完整性、README `<你的用户名>` 占位符、硬编码路径 / 密钥，**并调用 `scripts/smoke.py` 端到端冒烟自证**（--no-smoke / --strict 可配）；任一不过即 FAIL，出品前先过闸 |
+| **52** | **`publish` 发布就绪校验（上架闸门）** | 文档吹得满，一上架就被市场门槛或占位符打回 | 校验 SKILL.md 必填 frontmatter + `metadata.slug/displayName`、LICENSE、`market-card.md`、引用完整性、README `<你的用户名>` 占位符、硬编码路径 / 密钥，**并调用 `scripts/smoke.py` 端到端冒烟自证**（--no-smoke / --strict 可配）；任一不过即 FAIL，出品前先过闸 |

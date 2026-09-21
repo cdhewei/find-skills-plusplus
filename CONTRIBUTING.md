@@ -20,7 +20,7 @@
 - **零依赖**：`scripts/` 下的 Python 必须只用标准库，确保 Windows / Linux / macOS 通吃、无需 `pip install`。
 - **渐进式披露**：`SKILL.md` 只放核心流程与 Quick Reference；长篇专题一律放 `references/`（`security.md` / `cli.md` / `ranking.md` / `enhancements.md` / `roadmap.md`），并在 SKILL.md 末尾用表格链接。目标：SKILL.md 控制在 ~200 行内。
 - **frontmatter 规范**：必须含 `name` / `description` / `version`（语义化）/ `author` / `license` / `keywords`，以及 `metadata:` 块（`slug` / `displayName` / `category`）。改动行为时同步 bump `version`。
-- **市场卡片**：行为或风险面变化时需同步更新 `skill-card.md` 的 Known Risks and Mitigations。
+- **市场卡片**：行为或风险面变化时需同步更新 `market-card.md` 的 Known Risks and Mitigations。
 - **新信号必须配测试**：往 `scripts/security_scan.py` 加任何检测项，都要在 `tests/` 里补「恶意样本命中 + 正常样本不误报」两个用例。
 - **自查用 `--exclude-tests`**：`tests/` 内含大量恶意样本夹具，直接 `scan --path .` 会把自己判成 EXTREME。CI 已按此配置。审查**第三方**技能时绝不加该参数（payload 可能藏在测试目录）。
 - **必须带测试**：改动 `security_scan.py` 或排序/去重逻辑，请在 `tests/` 下补 pytest 用例，并在本地跑通：
