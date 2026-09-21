@@ -28,10 +28,20 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install "pytest>=8.3,<10"
+          pip install "pytest>=8.3,<9"
 
       - name: Run pytest
-        run: python -m pytest tests/ -q
+        run: |
+          set +e
+          python -m pytest tests/ -q 2>&1 | tee pytest.log
+          rc=${PIPESTATUS[0]}
+          {
+            echo "### pytest result (exit=$rc)"
+            echo '```'
+            sed -n '1,220p' pytest.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
 
       - name: Doctor (offline self-check)
         run: python findskills.py doctor --path .
