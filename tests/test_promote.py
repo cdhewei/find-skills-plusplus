@@ -130,11 +130,11 @@ def test_description_covers_trigger_phrases():
 
 
 def test_license_is_resolved_not_pending():
-    """许可证已从『待确认』结案为已核实 MIT。"""
+    """许可证已确认为标准 MIT（含 MIT License 标题与授权正文，无待定占位）。"""
     lic = (ROOT / "LICENSE").read_text(encoding="utf-8")
-    assert "已核实" in lic
-    assert "MIT" in lic
-    assert "待确认" not in lic or "此前" in lic
+    assert "MIT License" in lic
+    assert "Permission is hereby granted" in lic
+    assert "待确认" not in lic
 
 
 def test_changelog_exists_and_has_versions():
