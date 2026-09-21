@@ -29,7 +29,7 @@ AST 级安全审查、评估技能质量，并支持更新、卸载、冗余清�
 
 ## License / Terms of Use
 
-- **MIT**（新增内容）。上游 `guipi888/find-skills` 经核实为 **MIT, Copyright (c) 2026 Kyle**，
+- **MIT-0**（新增内容，见 NOTICE）。上游 `guipi888/find-skills` 经核实为 **MIT, Copyright (c) 2026 Kyle**，
   派生、修改、再分发均被明确允许；本仓库保留其 MIT 许可文本与署名。
 - 源头 `vercel-labs/skills`；思路参考 `sandbaseai/workbuddy-skill`。
 - 明确标注「基于 find-skills 修改」，不伪装成官方替代品。详见 `LICENSE` 与 `CHANGELOG.md`。

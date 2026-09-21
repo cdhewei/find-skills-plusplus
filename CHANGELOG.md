@@ -8,6 +8,19 @@
 
 ---
 
+## [Unreleased] · 许可证对齐（仓库合规收尾）
+
+将本仓库**新增内容**的许可从 MIT 对齐为 **MIT-0**，与 ClawHub 上架所选许可一致，降低下游再分发摩擦。
+
+### 变更
+- **LICENSE**：新增内容改为 MIT-0（保留 He Wei 署名，但不再强制要求保留许可文本）；派生自上游的部分仍受原 MIT 约束。
+- **NOTICE（新增）**：完整保留上游 `guipi888/find-skills`（MIT, Copyright 2026 Kyle）与源头 `vercel-labs/skills` 的署名与 MIT 许可全文，满足 MIT 的署名保留义务。
+- **文档同步**：`SKILL.md` / `MARKETPLACE-LISTING.md` / `market-card.md` / `README.md`（徽章与正文）/ `CONTRIBUTING.md` 的"本仓库新增内容"许可口径统一改为 MIT-0，上游 MIT 署名链保持不变。
+
+> 说明：上游派生部分仍为 MIT，本仓库仅对**新增自研内容**采用 MIT-0；未删除任何上游署名声明。
+
+---
+
 ## [5.3.0] — 2026-09-21 · 跨 agent 支持（P1-3）
 
 补齐"多 agent 安装 / 治理"能力，扩大可触达人群，缩小与 Vercel find-skills（27 agent）在"分发面"上的差距。

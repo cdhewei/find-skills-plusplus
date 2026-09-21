@@ -4,7 +4,7 @@ slug: find-skills-plusplus
 displayName: Find Skills++（技能发现·安全策展·生态治理）
 version: 5.3.0
 author: 何巍
-license: MIT（派生自 guipi888/find-skills，保留原 MIT 许可与署名；源头为 vercel-labs/skills）
+license: MIT-0（派生自 guipi888/find-skills，保留原 MIT 许可与署名，见 NOTICE；源头为 vercel-labs/skills）
 description: >
   技能生态的「安全策展 → 安装闸门 → 生态治理」全能工具，find-skills 的社区超级增强版（能力已超越原版与 skill-vetter 等同类）。
   当用户用自然语言描述需求（"我想做个海报""帮我分析股票""有没有能做 X 的技能"），或明确说

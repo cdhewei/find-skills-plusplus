@@ -9,7 +9,7 @@
 - **Slug**：`find-skills-plusplus`
 - **版本 / Version**：5.3.0
 - **作者 / Author**：何巍
-- **许可证 / License**：MIT（派生自 `guipi888/find-skills`，保留原 MIT 许可与署名；源头为 `vercel-labs/skills`）
+- **许可证 / License**：MIT-0（派生自 `guipi888/find-skills`，保留原 MIT 许可与署名，见 NOTICE；源头为 `vercel-labs/skills`）
 - **分类 / Category**：developer-tools / 效率工具
 - **标签 / Tags**：AI工具、技能发现、技能安全、WorkBuddy、CodeBuddy、生态治理
 

@@ -12,7 +12,7 @@
 > **带完整署名的社区超级增强版，非官方替代品。**
 
 [![CI](https://github.com/cdhewei/find-skills-plusplus/actions/workflows/ci.yml/badge.svg)](https://github.com/cdhewei/find-skills-plusplus/actions)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](#许可证与署名)
+[![License: MIT-0](https://img.shields.io/badge/license-MIT--0-blue.svg)](#许可证与署名)
 [![Python](https://img.shields.io/badge/python-3.8%2B-3776AB.svg)](#)
 [![Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)](#)
 [![Tests](https://img.shields.io/badge/tests-140%20passing-brightgreen.svg)](#测试)
@@ -272,7 +272,7 @@ python scripts/smoke.py
 - 思路参考：[`sandbaseai/workbuddy-skill`](https://github.com/sandbaseai/workbuddy-skill)；
   红旗清单对标 `skill-vetter`（31 万下载）。
 
-本仓库新增内容（`scripts/security_scan.py`、`findskills.py`、++ 增强、文档）以 **MIT** 提供，
+本仓库新增内容（`scripts/security_scan.py`、`findskills.py`、++ 增强、文档）以 **MIT-0** 提供，
 扫描器与 CLI 均为独立自研、纯标准库、零依赖实现。**保留上游 MIT 许可与署名**，
 明确标注"基于 find-skills 修改"，不伪装成官方替代品。详见 [LICENSE](./LICENSE)。
 
