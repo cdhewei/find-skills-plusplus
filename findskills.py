@@ -1805,6 +1805,7 @@ def build_parser() -> argparse.ArgumentParser:
     od.set_defaults(func=cmd_outdated)
 
     doc = sub.add_parser("doctor", help="环境体检：frontmatter/质量/重复安装/依赖连接器/硬编码路径")
+    doc.add_argument("--path", default=None, help="指定要体检的技能目录（默认扫描本地安装位置）")
     doc.set_defaults(func=cmd_doctor)
 
     pb = sub.add_parser("publish", help="发布就绪校验（上架前查市场门槛，含端到端冒烟自证）")
