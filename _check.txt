@@ -1,5 +1,0 @@
-ok=True
-metadata type: dict
-metadata: {'slug': 'find-skills-plusplus', 'displayName': 'Find Skills++（技能发现·安全策展·生态治理）', 'category': 'developer-tools', 'tier': 'ecosystem-governance'}
-top-level slug: 'find-skills-plusplus'
-top-level displayName: 'Find Skills++（技能发现·安全策展·生态治理）'

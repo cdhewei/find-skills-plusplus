@@ -7,22 +7,45 @@
 
 修复：discover_local 增加 include_self 参数；quality 自检时包含自身，
 并支持 `self` / `find-skills++` 等别名。默认仍排除自己（避免搜索结果自荐）。
+
+注意：discover_local 的排除/包含逻辑不再依赖真实安装位置——测试注入临时
+roots，保证在 CI（无 ~/.workbuddy/skills）等任意环境都能确定性验证。
 """
 import io
 import contextlib
+from pathlib import Path
+
+import pytest
 
 import findskills
 
 
-def test_discover_local_excludes_self_by_default():
+@pytest.fixture
+def fake_skills_dir(tmp_path):
+    """构造临时技能根目录，含「自己」与「另一个」两个技能，让 discover_local
+    的排除/包含逻辑可在任意环境（含 CI）确定性验证。"""
+    base = tmp_path / "skills"
+    self_dir = base / findskills.SELF_SLUG
+    self_dir.mkdir(parents=True)
+    (self_dir / "SKILL.md").write_text(
+        "---\nname: find-skills++\nversion: 5.2.1\n---\n", encoding="utf-8")
+    other_dir = base / "other-skill"
+    other_dir.mkdir(parents=True)
+    (other_dir / "SKILL.md").write_text(
+        "---\nname: other\nslug: other-skill\nversion: 1.0\n---\n", encoding="utf-8")
+    return base
+
+
+def test_discover_local_excludes_self_by_default(fake_skills_dir):
     """默认不列出自己——搜索结果里不该自荐。"""
-    names = {s["slug"] for s in findskills.discover_local()}
+    names = {s["slug"] for s in findskills.discover_local(roots=[fake_skills_dir])}
     assert findskills.SELF_SLUG not in names
+    assert "other-skill" in names
 
 
-def test_discover_local_include_self():
+def test_discover_local_include_self(fake_skills_dir):
     """include_self=True 时能找到自己。"""
-    names = {s["slug"] for s in findskills.discover_local(include_self=True)}
+    names = {s["slug"] for s in findskills.discover_local(include_self=True, roots=[fake_skills_dir])}
     assert findskills.SELF_SLUG in names
 
 

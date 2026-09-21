@@ -1,9 +1,0 @@
-﻿python.exe : C:\Users\win\.workbuddy\binaries\python\versions\3.13.12\python.ex
-e: No module named pytest
-所在位置 行:448 字符: 1
-+ & "C:\Users\win\.workbuddy\binaries\python\versions\3.13.12\python.ex ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (C:\Users\win\.w...le named pytest 
-   :String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 

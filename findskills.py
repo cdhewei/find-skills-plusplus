@@ -413,20 +413,22 @@ def validate_registry(entries: list[dict]) -> list[str]:
     return problems
 
 
-def discover_local(include_self: bool = False) -> list[dict]:
+def discover_local(include_self: bool = False, roots: list = None) -> list[dict]:
     """扫描本地已装技能目录，解析 frontmatter 取 name/version。
 
     include_self=False（默认）时排除 find-skills++ 自身——搜索/榜单里不该自荐。
     但 `quality` 自检等场景需要包含自己，用 include_self=True。
+    roots 可注入（测试用）；默认扫描 ~/.workbuddy/skills、~/.codebuddy/skills
+    以及 ~/.workbuddy/plugins/cache（插件缓存里的技能）。
     """
-    roots = [
-        Path.home() / ".workbuddy" / "skills",
-        Path.home() / ".codebuddy" / "skills",
-    ]
-    # 插件缓存里的技能
-    cache = Path.home() / ".workbuddy" / "plugins" / "cache"
+    if roots is None:
+        roots = [
+            Path.home() / ".workbuddy" / "skills",
+            Path.home() / ".codebuddy" / "skills",
+            Path.home() / ".workbuddy" / "plugins" / "cache",
+        ]
     found = []
-    for base in roots + ([cache] if cache.exists() else []):
+    for base in roots:
         if not base.exists():
             continue
         for skill_dir in base.rglob("SKILL.md"):
