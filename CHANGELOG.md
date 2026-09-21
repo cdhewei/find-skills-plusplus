@@ -8,6 +8,20 @@
 
 ---
 
+## [5.3.0] — 2026-09-21 · 跨 agent 支持（P1-3）
+
+补齐"多 agent 安装 / 治理"能力，扩大可触达人群，缩小与 Vercel find-skills（27 agent）在"分发面"上的差距。
+
+### 新增
+- **`detect_target_dir()` 多 agent 识别**：自动判定当前 agent（CodeBuddy 环境变量 / 家目录存在性），支持 WorkBuddy、CodeBuddy、**OpenClaw**、**Claude Code** 四端，默认 WorkBuddy 兜底。
+- **`--target` 接受 agent 名**：`install <slug> --target openclaw|claude|codebuddy|workbuddy`，也可传显式路径（`expanduser`）。
+- **`discover_local` 默认 roots 纳入 OpenClaw / Claude Code 技能目录**：`list` / `audit` / `clean-dupes` / `quality` 默认即可治理其它 agent 已装的技能，实现跨 agent 生态治理。
+
+### 数据
+- 版本：5.2.1 -> **5.3.0**（新增能力，增强项仍为 52，测试数仍为 140）
+
+---
+
 ## [5.2.1] — 2026-09-21 · 审定复审修正（出厂后两轮校对 / 审核 / 审定）
 
 5.2.0 出厂后，独立一轮「校对 -> 审核 -> 审定」复审，发现并修复两个**真实性缺陷**（均属"误报 / 虚报"类——正是工程纪律严防的）：

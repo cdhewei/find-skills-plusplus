@@ -2,11 +2,11 @@
 name: find-skills++
 slug: find-skills-plusplus
 displayName: Find Skills++（技能发现·安全策展·生态治理）
-version: 5.2.1
+version: 5.3.0
 author: 何巍
 license: MIT（派生自 guipi888/find-skills，保留原 MIT 许可与署名；源头为 vercel-labs/skills）
 description: >
-  技能生态的「发现 → 安全策展 → 安装 → 治理」全能工具，find-skills 的社区超级增强版（能力已超越原版与 skill-vetter 等同类）。
+  技能生态的「安全策展 → 安装闸门 → 生态治理」全能工具，find-skills 的社区超级增强版（能力已超越原版与 skill-vetter 等同类）。
   当用户用自然语言描述需求（"我想做个海报""帮我分析股票""有没有能做 X 的技能"），或明确说
   "找个 skill / 找技能 / 安装技能 / find skills / 技能推荐 / 技能管理 / 卸载技能 / 技能安全审查 / 技能装太多太乱了"时触发。
   原版与同类均不具备的差异化：① 安装前 AST 级安全扫描（ast+shlex，四级风险 EXTREME/HIGH/MEDIUM/LOW + 文件·网络·命令权限清单，EXTREME 直接阻断，能识破动态拼接、base64 混淆执行、凭据目录窃取、Agent 身份文件读取）；

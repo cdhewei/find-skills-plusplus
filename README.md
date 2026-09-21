@@ -1,10 +1,10 @@
 # Find Skills++ 🔍⚡
 
-> **English TL;DR** — Find Skills++ is a community supercharged fork of `find-skills`: an all-in-one **skill discovery · security curation · ecosystem governance** toolkit for AI agents. 20 subcommands, **zero dependencies** (pure Python stdlib), 140 passing tests. Its edge over the originals: ① AST-level **pre-install security scan** (4-tier EXTREME/HIGH/MEDIUM/LOW risk + file/network/command permission inventory, EXTREME blocks install); ② true **offline catalog** via `sync`; ③ **reference-integrity check** (flags skills referencing non-existent tools); ④ 0-100 **quality rating**; ⑤ full **lifecycle** management (update / uninstall-to-trash / clean-dupes). MIT, derived from `guipi888/find-skills`.
+> **English TL;DR** — Find Skills++ is a community supercharged fork of `find-skills`: an all-in-one **skill security-curation · install-gate · ecosystem-governance** toolkit (discovery included) for AI agents. 20 subcommands, **zero dependencies** (pure Python stdlib), 140 passing tests. Its edge over the originals: ① AST-level **pre-install security scan** (4-tier EXTREME/HIGH/MEDIUM/LOW risk + file/network/command permission inventory, EXTREME blocks install); ② true **offline catalog** via `sync`; ③ **reference-integrity check** (flags skills referencing non-existent tools); ④ 0-100 **quality rating**; ⑤ full **lifecycle** management (update / uninstall-to-trash / clean-dupes). MIT, derived from `guipi888/find-skills`.
 
-### 技能发现 · 安全策展 · 生态治理
+### 安装前安全闸门 · 装后生态治理 · 智能发现
 
-> **技能生态的「发现 → 安全策展 → 安装 → 治理」全能工具。**
+> **技能生态的「安全审查 → 安装闸门 → 全生命周期治理」全能工具，智能发现作为顺带能力。**
 > **52 项增强** · AST 级安全闸门 · 四级风险 · 真·离线全能 · 质量评级 · 全生命周期
 >
 > 派生自 [`guipi888/find-skills`](https://github.com/guipi888/find-skills)（MIT，99.4 万下载），
@@ -78,6 +78,7 @@ python findskills.py promote    # 一键生成 5000+ 字推广素材
 - 📊 **中文结构化卡片 + 综合排序** — 匹配/热度/时效/信誉四维加权，长期未维护自动标记
 - 🔄 **全生命周期（安装/更新/卸载/清理）** — `install`/`update`/`uninstall`（进回收站可还原）/`clean-dupes`（保留最新、其余进回收站）/ 安装历史可追溯
 - 🪟 **跨平台** — Windows / Linux / macOS 健壮判定，不依赖 macOS 专属变量
+🤝 **多 agent 支持** — 自动识别 WorkBuddy / CodeBuddy / OpenClaw / Claude Code 技能目录；`list`/`audit`/`clean-dupes` 默认也扫描 OpenClaw、Claude Code 已装技能，实现跨 agent 治理；安装用 `--target openclaw|claude` 显式指定
 - 🧠 **语义匹配** — 内置意图同义词词典，自然语言需求（如"处理pdf"）映射到技能意图，离线、零依赖、不依赖 embedding API
 - ⭐ **技能质量评级（含引用完整性）** — 七维（frontmatter/示例/参考/文档长度/新鲜度/可操作性/引用完整性）给出 0-100 分，**引用的本地文件或跨技能若不存在则大幅降级**，专治假优
 - 🔍 **冗余检测** — 区分「重复安装（同名多份）」与「功能冗余（不同名但相似）」，中文去停用+bigram 降误报
@@ -101,6 +102,11 @@ cp -r find-skills-plusplus ~/.workbuddy/skills/find-skills-plusplus
 
 # 方式二：SkillHub / ClawHub（发布后）
 # 在对应市场搜索 find-skills++ 一键安装
+
+# 多 agent：安装到其它 agent（默认自动识别当前 agent，也可显式指定）
+python findskills.py install <slug> --target openclaw   # 装到 OpenClaw
+python findskills.py install <slug> --target claude     # 装到 Claude Code
+# 注：list / audit / clean-dupes 默认也扫描 OpenClaw、Claude Code 已装技能，实现跨 agent 治理
 ```
 
 ## 使用

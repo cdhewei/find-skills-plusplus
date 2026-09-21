@@ -5,9 +5,9 @@
 
 ## 1. 基础信息
 
-- **技能名 / Name**：Find Skills++（技能发现·安全策展·生态治理）
+- **技能名 / Name**：Find Skills++（安全策展·生态治理·智能发现）
 - **Slug**：`find-skills-plusplus`
-- **版本 / Version**：5.2.1
+- **版本 / Version**：5.3.0
 - **作者 / Author**：何巍
 - **许可证 / License**：MIT（派生自 `guipi888/find-skills`，保留原 MIT 许可与署名；源头为 `vercel-labs/skills`）
 - **分类 / Category**：developer-tools / 效率工具
@@ -15,8 +15,8 @@
 
 ## 2. 一句话简介（Tagline）
 
-- 中文：给 AI 智能体的技能生态做「发现 → 安全策展 → 安装 → 治理」的全能工具。
-- EN: Curate and govern your AI agent's skill ecosystem — discover, vet, install, and manage skills safely.
+- 中文：给 AI 智能体的技能生态做「安装前安全闸门 + 装后生态治理」的全能工具，智能发现作为顺带能力。
+- EN: Vet before install, govern after — a security-first toolkit to curate and manage your AI agent's skill ecosystem (discovery included).
 
 ## 3. 详细描述（Description）
 
@@ -39,6 +39,7 @@ Find Skills++ is a community supercharged fork of `find-skills`: an all-in-one s
 - 🔄 全生命周期：装了也能管（更新 / 卸载可还原 / 去重）
 - 🧠 中文结构化卡片 + 综合排序 + 语义匹配（离线、零依赖）
 - 🚦 四级风险 + 权限清单 + 17 项红旗 + 5 级信任层级
+- 🤝 多 agent 支持：自动识别 WorkBuddy/CodeBuddy/OpenClaw/Claude Code；治理命令也能管别的 agent 的技能，扩大可触达人群
 
 ## 5. 安装（Install）
 

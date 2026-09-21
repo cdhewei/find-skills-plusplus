@@ -425,6 +425,8 @@ def discover_local(include_self: bool = False, roots: list = None) -> list[dict]
         roots = [
             Path.home() / ".workbuddy" / "skills",
             Path.home() / ".codebuddy" / "skills",
+            Path.home() / ".openclaw" / "skills",
+            Path.home() / ".claude" / "skills",
             Path.home() / ".workbuddy" / "plugins" / "cache",
         ]
     found = []
@@ -642,11 +644,40 @@ def cmd_scan(args) -> int:
     return rc
 
 
+# 已知 agent 的技能目录判定：env 前缀 或 家目录存在 → 技能目录
+AGENT_TARGETS = [
+    ("codebuddy", "CODEBUDDY_", ".codebuddy"),
+    ("workbuddy", None, ".workbuddy"),
+    ("openclaw", None, ".openclaw"),
+    ("claude", None, ".claude"),
+]
+
+
 def detect_target_dir() -> Path:
+    """自动判定当前 agent，返回其技能目录（默认 WorkBuddy）。"""
     import os
-    if any(k.startswith("CODEBUDDY_") for k in os.environ) or (Path.home() / ".codebuddy").exists():
-        return Path.home() / ".codebuddy" / "skills"
-    return Path.home() / ".workbuddy" / "skills"
+    home = Path.home()
+    # 1) 环境变量优先（最精确，标明当前运行的 agent）
+    for name, env_prefix, _ in AGENT_TARGETS:
+        if env_prefix and any(k.startswith(env_prefix) for k in os.environ):
+            return home / f".{name}" / "skills"
+    # 2) 家目录存在判定（按优先级）
+    for name, _, sub in AGENT_TARGETS:
+        if (home / sub).exists():
+            return home / sub / "skills"
+    # 3) 兜底
+    return home / ".workbuddy" / "skills"
+
+
+def resolve_target_dir(target_arg) -> Path:
+    """--target 可接受 agent 名（codebuddy/workbuddy/openclaw/claude）或显式路径。"""
+    if not target_arg:
+        return detect_target_dir()
+    key = target_arg.strip().lower()
+    mapping = {name: Path.home() / sub / "skills" for name, _, sub in AGENT_TARGETS}
+    if key in mapping:
+        return mapping[key]
+    return Path(target_arg).expanduser()
 
 
 # --------------------------------------------------------------------------
@@ -780,7 +811,7 @@ def _fetch_and_install(slug, target, force, yes, action="安装") -> int:
 
 
 def cmd_install(args) -> int:
-    target = Path(args.target) if args.target else detect_target_dir()
+    target = resolve_target_dir(args.target)
     return _fetch_and_install(args.slug, target, args.force, args.yes, action="安装")
 
 
@@ -1739,7 +1770,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     i = sub.add_parser("install", help="下载并安装社区技能（带安全闸门）")
     i.add_argument("slug")
-    i.add_argument("--target", help="目标目录（默认自动判定 ~/.workbuddy 或 ~/.codebuddy）")
+    i.add_argument("--target", help="目标目录或 agent 名（workbuddy/codebuddy/openclaw/claude，默认自动判定）")
     i.add_argument("--yes", action="store_true", help="P1 信号时仍继续")
     i.add_argument("--force", action="store_true", help="P0 也强制安装（不推荐）")
     i.set_defaults(func=cmd_install)

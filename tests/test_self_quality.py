@@ -28,7 +28,7 @@ def fake_skills_dir(tmp_path):
     self_dir = base / findskills.SELF_SLUG
     self_dir.mkdir(parents=True)
     (self_dir / "SKILL.md").write_text(
-        "---\nname: find-skills++\nversion: 5.2.1\n---\n", encoding="utf-8")
+        "---\nname: find-skills++\nversion: 5.3.0\n---\n", encoding="utf-8")
     other_dir = base / "other-skill"
     other_dir.mkdir(parents=True)
     (other_dir / "SKILL.md").write_text(
