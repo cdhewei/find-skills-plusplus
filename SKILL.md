@@ -24,6 +24,10 @@ keywords: skill, skills, find, discover, install, uninstall, update, security, a
 xiaping_trigger: ["AI", "技能", "效率", "工具", "安全", "开发"]
 xiaping_category: ["效率工具"]
 xiaping_tags: ["AI工具", "技能发现", "技能安全", "WorkBuddy", "CodeBuddy", "生态治理"]
+# 上架元数据（发布到各站时直接复制；categories 必须是 ClawHub 官方精确 slug，≤3 个）
+clawhub_categories: security, development, operations
+clawhub_topics: skill-discovery, security-scan, lifecycle-management, offline-catalog, skill-audit
+github_topics: agent-skills, skill-discovery, skill-security, security-scan, skill-management, offline-catalog, python, mit-0
 xiaping_eval_strategy: developer
 metadata:
   slug: find-skills-plusplus
